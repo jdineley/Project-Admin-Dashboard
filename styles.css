@@ -2,6 +2,11 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    
+}
+
+body {
+    font-family: 'Roboto', serif;
 }
 
 .wrapper {
@@ -20,9 +25,11 @@
 .side-bar {
     grid-column: 1 / span 1;
     grid-row: 1 / -1;
-    margin-left: 30px;
-    margin-right: 60px;
-    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 60px;
+    padding-top: 30px;
+    background-color: #0ea5e9;
+    color: white;
 }
 
 /* main */
@@ -75,7 +82,8 @@
 .side-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 30px;
 }
 
 /* Announcements */
@@ -101,7 +109,13 @@
 
 /* media queries */
 
-@media (max-width: 1100px) {
+@media (min-width: 1200px) {
+    .content {
+        grid-template-columns: 2fr 350px;
+    }
+}
+
+@media (max-width: 900px) {
     .content {
         grid-template-columns: 1fr;
     }
