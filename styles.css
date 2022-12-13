@@ -1,12 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
     
-}
-
-body {
-    font-family: 'Roboto', serif;
 }
 
 .wrapper {
@@ -27,10 +26,40 @@ body {
     grid-row: 1 / -1;
     padding-left: 30px;
     padding-right: 60px;
-    padding-top: 30px;
+    padding-top: 10px;
     background-color: #0ea5e9;
     color: white;
 }
+
+#menu-list div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#dash {
+    height: 30px;
+}
+
+.side-bar img {
+    height: 20px;
+}
+
+#menu-list > div:first-child {
+    margin-bottom: 40px;
+}
+
+#menu-list > div {
+    margin-bottom: 20px;
+}
+
+#menu-list > div:nth-child(7) {
+    margin-bottom: 60px;
+}
+
+
+
+
 
 /* main */
 .main {
@@ -42,9 +71,21 @@ body {
 .header-top, .header-bottom {
     display: flex; 
     align-items: center;
-    margin: 30px;
+    
     gap: 15px;
 }
+
+.header-top {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-inline: 30px;
+}
+
+.header-bottom {
+    margin: 30px;
+}
+
+
 
 .header-top input {
     flex: 1;
