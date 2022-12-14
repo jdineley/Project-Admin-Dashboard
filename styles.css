@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --input-height: 25px;
+    --button-height: 30px;
+}
 
 * {
     box-sizing: border-box;
@@ -9,7 +14,6 @@
 }
 
 .wrapper {
-    /* min-height: 100vh; */
     display: grid;
     grid-template-columns: auto 1fr;
 }
@@ -17,6 +21,10 @@
 /* Sidebar */
 [aria-controls="menu-list"] {
     display: none;
+    height: var(--button-height);
+    border: none;
+    border-radius: calc(var(--button-height)/2);
+    padding: 0px 15px;
   }
 
 
@@ -41,7 +49,7 @@
     height: 30px;
 }
 
-.side-bar img {
+img {
     height: 20px;
 }
 
@@ -56,8 +64,6 @@
 #menu-list > div:nth-child(7) {
     margin-bottom: 60px;
 }
-
-
 
 
 
@@ -76,19 +82,44 @@
 }
 
 .header-top {
-    margin-top: 10px;
-    margin-bottom: 30px;
-    margin-inline: 30px;
+    margin: 10px 30px;
+}
+
+.header-top div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-top div:first-child {
+    flex: 1;
+}
+
+.header-top div:last-child {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.logo-small img {
+    height: 40px;
+}
+
+.logo-big img {
+    height: 80px;
 }
 
 .header-bottom {
-    margin: 30px;
+    margin-inline: 30px;
 }
 
 
 
 .header-top input {
+    height: var(--input-height);
     flex: 1;
+    border-radius: calc(var(--input-height)/2);
+    border: none;
+    background-color: rgba(211, 211, 211, 0.628);
 }
 
 
@@ -96,13 +127,38 @@
     flex: 1;
 }
 
+
+
+.header-bottom button {
+    height: var(--button-height);
+    padding: 5px 20px;
+    border: none;
+    border-radius: calc(var(--button-height)/2);
+    background-color: #0ea5e9;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0px;
+}
+
+.buttons button {
+    color: white;
+}
+
 /* content */
 
 .content {
    display: grid;
-   grid-template-columns: 2fr 1fr; 
+   grid-template-columns: 5fr 2fr; 
    gap: 20px;
    padding: 15px;
+   background-color: rgba(211, 211, 211, 0.628);
+}
+
+.projects > h4 {
+    margin-bottom: 15px;
 }
 
 /* cards */
@@ -111,11 +167,27 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
+    
 }
 
 .card {
     border: 1px solid black;
-    padding: 20px;
+    padding: 20px 15px;
+    background-color: white;
+    border: none;
+    border-left: 10px solid rgb(245, 203, 87);
+    border-radius: 8px;
+}
+
+.card p {
+    font-size: 0.7rem;
+    margin-bottom: 30px;
+}
+
+.card div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px
 }
 
 /* side-info */
@@ -123,7 +195,6 @@
 .side-info {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     gap: 30px;
 }
 
@@ -131,13 +202,29 @@
 
 .announcements > div {
     border: 1px solid black;
-    padding: 20px;
+    padding-inline: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
 }
+
+.announcements > div > div {
+    border-bottom: 1px solid black;
+    padding: 20px 0px;
+}
+
+.announcements > div > div:last-child {
+    border: none;
+}
+
 
 .announcements p {
-    font-size: small;
+    font-size: 0.6rem;
 }
 
+.announcements h4 {
+    margin-bottom: 15px;
+}
 
 
 /* trending */
@@ -145,8 +232,27 @@
 .trending > div {
     border: 1px solid black;
     padding: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
 }
 
+.trending > h4 {
+    margin-bottom: 15px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user p {
+    font-size: 0.7rem;
+}
+.user p:first-child {
+    font-weight: 700;
+}
 
 /* media queries */
 
@@ -163,9 +269,12 @@
     .side-info {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        /* align-items: center; */
         gap: 20px;
     }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+      }
 }
 
 @media (max-width: 530px){
@@ -182,6 +291,9 @@
         transform: rotateY(90deg);
         transition: all 0.5s;
       }
+    .header-top h3 {
+        font-size: 0.8rem;
+    }
       [aria-expanded="true"] ~ div {
         display: grid;
         max-height: 500px;
@@ -199,4 +311,5 @@
       [aria-expanded="true"] .open {
         display: none;
       }
+ 
 }
